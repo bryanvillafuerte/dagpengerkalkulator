@@ -1,25 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { Container,
+  Typography,
+  Paper, 
+  TextField,
+  InputAdornment,
+  FormControl
+} from '@material-ui/core';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className="mainContainer">
+      <Paper elevation={3} className="calculatorContainer">
+        <Typography variant="h3" align="center" color="Primary">
+          Dagpenger Kalkulator
+        </Typography>
+        <FormControl fullWidth>
+          <TextField
+            required
+            size="small"
+            id="outlined-required"
+            label="Beløp"
+            defaultValue="Hello World"
+            variant="outlined"
+            InputProps={{
+              startAdornment: <InputAdornment position="start">Kr</InputAdornment>,
+            }}
+          />
+        </FormControl>
+      </Paper>
+    </Container>
   );
 }
 
