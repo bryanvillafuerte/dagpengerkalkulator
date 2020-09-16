@@ -9,8 +9,9 @@ import {
 } from '@material-ui/core';
 import InputComp from "./components/InputComp";
 import AlertDialog from "./components/DialogComp.js";
-import navLogo from "./images/nav-logopakke/NAV logo/PNG/Red.png";
 import { getInputValue } from "./scripts/getInputValue";
+import { G2020 } from "./constants/amountG";
+import navLogo from "./images/nav-logopakke/NAV logo/PNG/Red.png";
 
 const useStyles = makeStyles({
   calculator: {
@@ -69,8 +70,14 @@ function App() {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
-    setOpen(true);
     getInputValue();
+    setOpen(true);
+
+    var currentSats = getInputValue();
+      
+    if ( currentSats > G2020 ) {
+      document.getElementById("dialogTitle").textContent = "Du har rett til dagpenger"
+    }
   };
 
   const handleClose = () => {
@@ -91,7 +98,7 @@ function App() {
             </Typography>
 
             <Typography className={classes.sectionTitle} variant="h6">
-              Berign inntekt fra siste 36 måneder
+              Beregn inntekt fra siste 36 måneder
             </Typography>
 
             <InputComp />

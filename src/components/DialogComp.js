@@ -11,7 +11,7 @@ export default function AlertDialog(props) {
   function refreshPage() {
     window.location.reload(false);
   }
-
+  
   return (
     <>
       <Dialog
@@ -20,7 +20,7 @@ export default function AlertDialog(props) {
       >
         <DialogTitle id="dialogTitle"></DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description"></DialogContentText>
+          <DialogContentText id="dialogDescription"></DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={refreshPage} color="primary" autoFocus>
