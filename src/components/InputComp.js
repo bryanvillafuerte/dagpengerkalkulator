@@ -7,26 +7,26 @@ import {
     FormControl,
 } from '@material-ui/core';
 
-  const useStyles = makeStyles({
-    sectionTitle: {
-      paddingBottom: 10,
-    },
-  
-    inputSection: {
-      marginBottom: 10,
-    },
-  
-    inputTitle: {
-      paddingTop: 10,
-      paddingBottom: 10,
-    },
-  
-    inputField: {
-      marginBottom: 10,
-    }
-  });
+const useStyles = makeStyles({
+  sectionTitle: {
+    paddingBottom: 10,
+  },
 
-function InputComp() {
+  inputSection: {
+    marginBottom: 10,
+  },
+
+  inputTitle: {
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
+
+  inputField: {
+    marginBottom: 10,
+  },
+});
+
+export default function InputComp() {
   const classes = useStyles();
   var date = new Date();
   var year1 = date.getFullYear() -1;
@@ -97,5 +97,3 @@ function InputComp() {
     </>
   )
 }
-
-export default InputComp;
