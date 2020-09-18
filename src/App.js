@@ -67,6 +67,11 @@ const useStyles = makeStyles({
     padding: 20,
   },
 
+  resultContent: {
+    paddingTop: 5,
+    paddingBottom: 5,
+  },
+
   resetButton: {
     marginTop: 20,
     color: "#C30000",
@@ -79,16 +84,6 @@ function App() {
   function refreshPage() {
     window.location.reload(false);
   }
-
-  /*const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };*/
 
   return (
     <>
@@ -104,7 +99,7 @@ function App() {
             </Typography>
 
             <Typography className={classes.sectionTitle} variant="h6">
-              Beregn inntekt fra siste 36 måneder
+              Beregn din inntekt fra siste 3 kalenderårene.
             </Typography>
 
             <InputComp />
@@ -114,7 +109,9 @@ function App() {
             </Button>
 
             <Paper id="resultContainer" elevation={3} className={classes.rightResult}>
-              <Typography variant="h4" align="center" id="rightResult"></Typography>
+              <Typography className={classes.resultContent} variant="h5" align="center" id="rightResult"></Typography>
+              <Typography className={classes.resultContent} variant="body1" align="center" id="dailyResult"></Typography>
+              <Typography className={classes.resultContent} variant="body1" align="center" id="maxGtext"></Typography>
               <Button variant="contained" className={classes.resetButton} onClick={refreshPage} fullWidth>
                 Nullstill
               </Button>
@@ -127,5 +124,3 @@ function App() {
 }
 
 export default App;
-
-//<AlertDialog open={open} handleClickOpen={handleClickOpen} handleClose={handleClose} />
