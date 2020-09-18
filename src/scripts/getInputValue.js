@@ -1,4 +1,5 @@
 import { gFactor2020 } from "../constants/amountG";
+import { G2020 } from "../constants/amountG";
 
 export function getInputValue() {
     var input1 = document.getElementById("input1").value;
@@ -19,6 +20,16 @@ export function getInputValue() {
     var averageInput = totalInput / allInput.length;
 
     var gAmount = averageInput * gFactor2020;
-    
-    return gAmount;
+
+    var currentSats = gAmount;
+
+    if ( currentSats > G2020 ) {
+      var newText = document.createTextNode("Du har rett til dagpenger.");
+      var diaTitle = document.getElementById("rightResult");
+      diaTitle.appendChild(newText);
+    } else {
+      var newText2 = document.createTextNode("Du har desverre ikke noe rett til dagpenger.");
+      var diaTitle2 = document.getElementById("rightResult");
+      diaTitle2.appendChild(newText2);
+    }
 }

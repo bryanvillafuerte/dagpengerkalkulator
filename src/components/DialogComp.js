@@ -8,9 +8,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 export default function AlertDialog(props) {
 
-  function refreshPage() {
-    window.location.reload(false);
-  }
+  
   
   return (
     <>

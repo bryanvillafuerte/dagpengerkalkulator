@@ -8,9 +8,7 @@ import {
   Button
 } from '@material-ui/core';
 import InputComp from "./components/InputComp";
-import AlertDialog from "./components/DialogComp.js";
 import { getInputValue } from "./scripts/getInputValue";
-import { G2020 } from "./constants/amountG";
 import navLogo from "./images/nav-logopakke/NAV logo/PNG/Red.png";
 
 const useStyles = makeStyles({
@@ -62,27 +60,35 @@ const useStyles = makeStyles({
     paddingTop: 10,
     paddingBottom: 10,
   },
+
+  rightResult: {
+    marginTop: 40,
+    marginBottom: 40,
+    padding: 20,
+  },
+
+  resetButton: {
+    marginTop: 20,
+    color: "#C30000",
+  }
 });
 
 function App() {
   const classes = useStyles();
 
-  const [open, setOpen] = React.useState(false);
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
+  /*const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
-    getInputValue();
     setOpen(true);
-
-    var currentSats = getInputValue();
-      
-    if ( currentSats > G2020 ) {
-      document.getElementById("dialogTitle").textContent = "Du har rett til dagpenger"
-    }
   };
 
   const handleClose = () => {
     setOpen(false);
-  };
+  };*/
 
   return (
     <>
@@ -103,15 +109,23 @@ function App() {
 
             <InputComp />
 
-            <Button variant="contained" color="primary" fullWidth onClick={handleClickOpen} type="submit">
+            <Button variant="contained" onClick={getInputValue} color="primary" fullWidth type="submit">
               Beregn
             </Button>
+
+            <Paper id="resultContainer" elevation={3} className={classes.rightResult}>
+              <Typography variant="h4" align="center" id="rightResult"></Typography>
+              <Button variant="contained" className={classes.resetButton} onClick={refreshPage} fullWidth>
+                Nullstill
+              </Button>
+            </Paper>
           </Paper>
         </Paper>
       </Container>
-      <AlertDialog open={open} handleClickOpen={handleClickOpen} handleClose={handleClose} />
     </>
   );
 }
 
 export default App;
+
+//<AlertDialog open={open} handleClickOpen={handleClickOpen} handleClose={handleClose} />
